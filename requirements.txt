@@ -5,3 +5,4 @@ groq
 pydub
 psycopg2-binary
 sqlalchemy
+gunicorn

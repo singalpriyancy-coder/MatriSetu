@@ -82,6 +82,13 @@ from database import (
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "matrisetu2026secret")
 
+# 3D visual theme (UI only) - see theme3d.py
+from theme3d import apply_theme
+
+@app.after_request
+def _apply_3d_theme(resp):
+    return apply_theme(resp)
+
 init_db()
 start_escalation_engine()
 

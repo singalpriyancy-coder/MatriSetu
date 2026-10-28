@@ -1,0 +1,132 @@
+/* MatriSetu 3D theme — visual layer only. Loaded after each page's own CSS.
+   Remove the <link>/<script> injection (theme3d.py) and everything returns to the old look. */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap');
+
+:root{
+  --m3-card:rgba(34,17,74,.42);
+  --m3-edge:rgba(255,255,255,.13);
+  --m3-rose:#ff5c8a; --m3-gold:#ffb547; --m3-teal:#35e0c2; --m3-lilac:#a78bfa; --m3-sky:#7dc4ff;
+  --tx:#f4eeff;
+  /* flip the light palettes every page already uses */
+  --ink:#f4eeff; --muted:#bcaee0; --pale:#9585c4; --border:rgba(255,255,255,.13);
+  --bg:transparent; --white:rgba(34,17,74,.52);
+  --green-tint:rgba(53,224,194,.08); --teal-tint:rgba(53,224,194,.08); --blue-tint:rgba(125,196,255,.08);
+  --green-pale:rgba(53,224,194,.17); --teal-pale:rgba(53,224,194,.17);
+  --red-pale:rgba(255,92,138,.18); --amber-pale:rgba(255,181,71,.17); --blue-pale:rgba(125,196,255,.17);
+  --green-deep:rgba(16,7,38,.7); --blue-deep:rgba(16,7,38,.7);
+  --green-mid:#35e0c2; --green-bright:#35e0c2; --green-b:#35e0c2; --green:#35e0c2;
+  --teal:#35e0c2; --teal-mid:#35e0c2; --teal-bright:#35e0c2;
+  --blue-mid:#7dc4ff; --blue-bright:#7dc4ff; --blue:#7dc4ff;
+  --red:#ff5c8a; --amber:#ffb547; --purple:#a78bfa;
+  --card:0 14px 40px rgba(5,0,20,.45); --card-shadow:0 14px 40px rgba(5,0,20,.45); --card-hover:0 18px 50px rgba(5,0,20,.55);
+}
+html{background:radial-gradient(130% 100% at 50% 0%,#2b1259 0%,#150a30 55%,#0b0518 100%) fixed!important;min-height:100%}
+body{background:transparent!important;color:var(--tx)!important;font-family:'Bricolage Grotesque','DM Sans','Segoe UI',system-ui,sans-serif!important;position:relative}
+#m3-canvas{position:fixed;inset:0;width:100%;height:100%;z-index:-1;display:block;pointer-events:none;opacity:0;transition:opacity 1.6s ease}
+#m3-canvas.on{opacity:1}
+body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(90% 70% at 50% 40%,transparent 40%,rgba(8,3,20,.55) 100%)}
+
+/* ── headers ── */
+.header,.topbar{
+  background:linear-gradient(120deg,rgba(255,92,138,.26),rgba(167,139,250,.2) 50%,rgba(53,224,194,.18))!important;
+  -webkit-backdrop-filter:blur(20px) saturate(140%);backdrop-filter:blur(20px) saturate(140%);
+  border-bottom:1px solid var(--m3-edge)!important;color:#fff!important}
+.header::after{opacity:.25}
+.header-bg-circle,.hbg{background:rgba(255,255,255,.035)!important}
+.header-title,.topbar h1{font-weight:800!important;letter-spacing:-.02em;color:#fff!important;text-shadow:0 2px 24px rgba(255,92,138,.45)}
+.header-sub,.header-eyebrow,.header-eye,.header-role{color:#e5d9ff!important;opacity:1!important}
+.header-pill,.hpill,.hmeta>*{background:rgba(255,255,255,.1)!important;border:1px solid rgba(255,255,255,.2)!important;color:#fff!important;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.header-pill.danger{background:rgba(255,92,138,.3)!important;border-color:rgba(255,92,138,.6)!important}
+
+/* ── tabs ── */
+.tab-nav,.tab-bar{
+  position:sticky;top:0;z-index:30;background:rgba(14,6,34,.72)!important;
+  -webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);border-bottom:1px solid var(--m3-edge)!important}
+.tab-btn,.tab{color:#bcaee0!important;background:transparent!important;border:none!important;border-radius:12px 12px 0 0!important;transition:color .2s,background .2s,box-shadow .2s!important}
+.tab-btn:hover,.tab:hover{color:#fff!important;background:rgba(255,255,255,.07)!important}
+.tab-btn.active,.tab.active{color:#fff!important;background:linear-gradient(180deg,rgba(255,255,255,0),rgba(167,139,250,.22))!important;
+  box-shadow:inset 0 -3px 0 var(--m3-rose),0 8px 24px -10px var(--m3-rose)!important}
+.tab-badge,.sec-count,.sec-badge{background:var(--m3-rose)!important;color:#fff!important;border:none!important}
+
+/* ── glass cards ── */
+.stat-card,.stat,.kpi,.alert-card,.patient-row,.child-card,.pp-card,.perf-card,.scheme-card,.chart-card,.card,
+.tbl-wrap,.table-wrap,.asha-perf-card,.anc-card,.lb-row,.perf-metric,.db-metric,.export-card,.village-group,
+.esc-form,.visit-form,.patient-detail,.donut-wrap,.anc-timeline,.status-flow,.recovery-msg,.metric-row{
+  background:var(--m3-card)!important;border:1px solid var(--m3-edge)!important;border-radius:20px!important;
+  -webkit-backdrop-filter:blur(7px) saturate(130%);backdrop-filter:blur(7px) saturate(130%);
+  box-shadow:0 14px 40px rgba(5,0,20,.45),inset 0 1px 0 rgba(255,255,255,.1)!important;color:var(--tx)!important;
+  transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s,border-color .25s}
+.stat-card:hover,.stat:hover,.kpi:hover,.chart-card:hover,.perf-card:hover,.asha-perf-card:hover,.scheme-card:hover,.child-card:hover,.export-card:hover{
+  border-color:rgba(255,255,255,.3)!important;box-shadow:0 22px 56px rgba(5,0,20,.6),0 0 38px -8px rgba(167,139,250,.55),inset 0 1px 0 rgba(255,255,255,.18)!important}
+.m3-tilt{transform-style:preserve-3d;will-change:transform}
+.stat-num,.kpi-num,.stat-number,.db-num,.perf-num,.apc-score,.donut-num{
+  font-weight:800!important;letter-spacing:-.03em;text-shadow:0 0 28px currentColor}
+.stat-lbl,.kpi-lbl,.stat-label,.db-lbl,.perf-lbl{color:#bcaee0!important}
+.stat-icon,.kpi-icon{filter:drop-shadow(0 4px 12px rgba(255,255,255,.25))}
+
+/* semantic alert tints keep their meaning, gain glow */
+.alert-card{border-left:4px solid var(--m3-rose)!important}
+.danger-banner{background:linear-gradient(120deg,rgba(255,92,138,.35),rgba(255,92,138,.12))!important;border:1px solid rgba(255,92,138,.5)!important;border-radius:16px!important;color:#fff!important}
+
+/* ── buttons ── */
+.btn,.fab{border-radius:12px!important;box-shadow:0 8px 22px rgba(5,0,20,.4);transition:transform .15s,box-shadow .2s,filter .2s!important}
+.btn:hover{transform:translateY(-2px) scale(1.02);filter:brightness(1.12);box-shadow:0 12px 30px rgba(5,0,20,.55),0 0 24px -4px currentColor}
+.btn-dark,.btn-ghost{background:rgba(255,255,255,.1)!important;color:#fff!important;border:1px solid var(--m3-edge)!important}
+.btn-attend,.btn-green,.btn-primary,.btn-teal,.btn-success{background:linear-gradient(135deg,#1fbf9f,#35e0c2)!important;color:#06261f!important}
+.btn-red,.btn-danger{background:linear-gradient(135deg,#e23a6c,#ff5c8a)!important;color:#fff!important}
+.btn-amber{background:linear-gradient(135deg,#f59e0b,#ffb547)!important;color:#2b1700!important}
+.btn-blue,.btn-visit,.btn-maps{background:linear-gradient(135deg,#4a90f0,#7dc4ff)!important;color:#04203d!important}
+.btn-purple{background:linear-gradient(135deg,#7c5af0,#a78bfa)!important;color:#fff!important}
+.fab{background:linear-gradient(135deg,var(--m3-rose),var(--m3-lilac))!important;color:#fff!important;box-shadow:0 10px 34px rgba(255,92,138,.55)}
+
+/* ── forms ── */
+input,select,textarea,.form-ctrl{background:rgba(10,4,26,.6)!important;color:var(--tx)!important;border:1px solid var(--m3-edge)!important;border-radius:12px!important;
+  transition:border-color .2s,box-shadow .2s}
+input:focus,select:focus,textarea:focus,.form-ctrl:focus{outline:none;border-color:var(--m3-lilac)!important;box-shadow:0 0 0 3px rgba(167,139,250,.3)!important}
+input::placeholder,textarea::placeholder{color:#8171ad!important}
+option{background:#1a0b3b;color:#f4eeff}
+.form-label{color:#bcaee0!important}
+
+/* ── tables ── */
+table{color:var(--tx)}
+th{background:rgba(255,255,255,.07)!important;color:#cdbfff!important;border:none!important}
+td{border-bottom:1px solid rgba(255,255,255,.08)!important;color:#e6dcff!important}
+tr:hover td{background:rgba(255,255,255,.06)!important}
+
+/* ── text & misc ── */
+h1,h2,h3,h4,.card-title,.chart-card-title,.sec-head,.section-title,.patient-name,.alert-name,.lb-name,.apc-name,.pp-name,.child-name{color:#fff!important}
+.card-sub,.chart-card-sub,.alert-line,.alert-time,.alert-address,.patient-detail,.lb-meta,.apc-meta,.pp-meta,.child-age,.empty,.footer{color:#bcaee0!important}
+.empty-icon{filter:drop-shadow(0 6px 18px rgba(167,139,250,.5))}
+a{color:#9fd6ff}
+.badge-green,.badge-active,.rating-GREEN,.rp-GREEN{background:rgba(53,224,194,.18)!important;color:#7cf0d9!important}
+.badge-red,.badge-inactive,.rating-RED,.rp-RED{background:rgba(255,92,138,.2)!important;color:#ff9db9!important}
+.badge-amber,.rating-AMBER,.rp-AMBER{background:rgba(255,181,71,.2)!important;color:#ffd08a!important}
+.badge-blue{background:rgba(125,196,255,.2)!important;color:#b5deff!important}
+.badge-purple{background:rgba(167,139,250,.22)!important;color:#d4c6ff!important}
+.msg-success{background:rgba(53,224,194,.18)!important;color:#7cf0d9!important;border:1px solid rgba(53,224,194,.4)}
+.msg-error{background:rgba(255,92,138,.2)!important;color:#ff9db9!important;border:1px solid rgba(255,92,138,.4)}
+.risk-bar,.bar-wrap,.lb-bar-bg,.lb-bg,.perf-bar,.anc-bar-wrap,.growth-bar-col{background:rgba(255,255,255,.1)!important;border-radius:99px!important}
+.live-pulse,.live-dot,.live{filter:drop-shadow(0 0 8px #4ade80)}
+svg text{fill:#d9ccff}
+::selection{background:var(--m3-rose);color:#fff}
+::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-thumb{background:rgba(167,139,250,.4);border-radius:9px}
+@media (max-width:700px){#m3-canvas{opacity:.75!important}.stat-card,.kpi,.stat{border-radius:16px!important}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* status-flow pills on alert cards */
+.step-node,.step{background:rgba(255,255,255,.08)!important;color:#bcaee0!important;border:1px solid var(--m3-edge)!important}
+.step-done{background:linear-gradient(135deg,#1fbf9f,#35e0c2)!important;color:#06261f!important;border-color:transparent!important}
+.step-pending,.step-pend{background:rgba(255,255,255,.06)!important;color:#9585c4!important}
+.step-arr{color:#9585c4!important}
+.recovery-waiting,.recovery-done{background:rgba(255,255,255,.07)!important;color:#e6dcff!important;border:1px solid var(--m3-edge)!important}
+.immuno-pill,.pnc-day,.anc-step,.pnc-pip,.outcome-pill{background:rgba(255,255,255,.08)!important;color:#e6dcff!important;border:1px solid var(--m3-edge)!important}
+
+/* icon tiles, login box */
+.kpi-icon{background:rgba(255,255,255,.1)!important;border:1px solid var(--m3-edge);border-radius:14px}
+.box{background:rgba(34,17,74,.55)!important;border:1px solid var(--m3-edge)!important;border-radius:24px!important;
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 24px 70px rgba(5,0,20,.6),0 0 60px -10px rgba(167,139,250,.5)!important}
+.box h2{color:#fff!important;text-shadow:0 2px 24px rgba(255,92,138,.5)}
+.box p,.back{color:#bcaee0!important}
+.box button{background:linear-gradient(135deg,var(--m3-rose),var(--m3-lilac))!important;border-radius:12px!important;box-shadow:0 10px 28px rgba(255,92,138,.4);transition:transform .15s,filter .2s}
+.box button:hover{transform:translateY(-2px);filter:brightness(1.12)}
+.error{color:#ff9db9!important}

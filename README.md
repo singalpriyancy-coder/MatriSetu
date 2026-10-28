@@ -3,9 +3,9 @@
 > **MatriSetu** — Mother's Friend
 > An AI-powered WhatsApp bot that gives every rural pregnant woman a knowledgeable health companion available 24/7 in her own language.
 
-**Live URL:** `matrisetu-production-2116.up.railway.app`
+**Live URL:** `https://matrisetu.onrender.com`
 **WhatsApp Bot:** `+1 415 523 8886` (send `join kitchen-highest`)
-**GitHub:** `github.com/PriyancySingal/MatriSetu`
+**GitHub:** `https://github.com/singalpriyancy-coder/MatriSetu`
 
 ---
 
